@@ -1,0 +1,146 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 4.9%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 10% 65%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 84% 4.9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --electric-blue: 217 91% 60%;
+    --electric-blue-darker: 217 91% 50%;
+    --dark-bg: 222 84% 5%;
+    --darker-bg: 220 90% 3%;
+    --surface: 217 32% 17%;
+    --surface-hover: 217 32% 20%;
+    --text-primary: 210 40% 98%;
+    --text-secondary: 217 10% 65%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(142 76% 36%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(217 32% 17%) 0%, hsl(215 28% 17%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(217 91% 60% / 0.1) 0%, hsl(142 76% 36% / 0.1) 100%);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .surface-gradient {
+    background: var(--gradient-secondary);
+  }
+  
+  .glow-effect {
+    background: var(--gradient-glow);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@layer utilities {
+  .text-electric {
+    color: hsl(var(--electric-blue));
+  }
+  
+  .bg-electric {
+    background-color: hsl(var(--electric-blue));
+  }
+  
+  .border-electric {
+    border-color: hsl(var(--electric-blue));
+  }
+  
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+  
+  .hover:bg-surface-hover:hover {
+    background-color: hsl(var(--surface-hover));
+  }
+}
